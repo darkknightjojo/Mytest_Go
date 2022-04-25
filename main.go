@@ -1,6 +1,8 @@
 package main
 
-import "github.com/darkknightjojo/Mytest_Go/Test"
+import (
+	"fmt"
+)
 
 func main() {
 	//myImage := im.CreateImage("wyd", 13, 14)
@@ -19,8 +21,12 @@ func main() {
 	//Test.Reflect()
 	//Test.FPrint()
 	//Test.Buffer()
-	//web.Start()
+	//Test.Start()
 	//Test.Switch_3()
-	Test.Goroutine2()
+	//Test.Goroutine2()
+	//Test.Channel2()
+	//Test.Select()
 
+	a := "Hello,JoJo"
+	fmt.Printf("%v", a)
 }

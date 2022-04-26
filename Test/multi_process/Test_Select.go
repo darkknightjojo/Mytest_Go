@@ -1,4 +1,4 @@
-package Test
+package multi_process
 
 import (
 	"fmt"

@@ -1,32 +1,14 @@
 package main
 
-import (
-	"fmt"
-)
+import "github.com/darkknightjojo/Mytest_Go/Test/multi_process"
 
 func main() {
-	//myImage := im.CreateImage("wyd", 13, 14)
-	//im.DisplayImage(myImage)
-
-	//music.PlayMusic()
-	//Test.Test()
-	//Test.SizeOfNum()
-	//Test.Timer()
-	//Test.Switch_2()
-	//Test.For()
-	//Test.Interface()
-	//Test.Map()
-	//Test.List()
-	//Test.Ring()
-	//Test.Reflect()
-	//Test.FPrint()
-	//Test.Buffer()
-	//Test.Start()
-	//Test.Switch_3()
-	//Test.Goroutine2()
-	//Test.Channel2()
-	//Test.Select()
-
-	a := "Hello,JoJo"
-	fmt.Printf("%v", a)
+	//multi_process.Mutex()
+	//time.Sleep(2000*time.Second)
+	//multi_process.Cond()
+	//multi_process.Pool()
+	//multi_process.Map()
+	//multi_process.TestWithDeadline(2)
+	//multi_process.TestContext()
+	multi_process.WorkPool()
 }

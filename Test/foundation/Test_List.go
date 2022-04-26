@@ -1,4 +1,4 @@
-package Test
+package foundation
 
 import (
 	"container/list"

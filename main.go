@@ -1,6 +1,6 @@
 package main
 
-import "github.com/darkknightjojo/Mytest_Go/Test/multi_process"
+import Web "github.com/darkknightjojo/Mytest_Go/Test/web"
 
 func main() {
 	//multi_process.Mutex()
@@ -10,5 +10,7 @@ func main() {
 	//multi_process.Map()
 	//multi_process.TestWithDeadline(2)
 	//multi_process.TestContext()
-	multi_process.WorkPool()
+	//multi_process.WorkPool()
+	//Web.HttpDemo()
+	Web.HttpRouter()
 }

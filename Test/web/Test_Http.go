@@ -1,21 +1,26 @@
-package Test
+package Web
 
 import (
-	"fmt"
-	"log"
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	s := "<html><body><H1>Hello, world!</H1></body></html>"
-	_, _ = fmt.Fprintf(w, "%s", s)
-	log.Printf("%s", s)
+func HttpDemo() {
+	http.Handle("/", &ThisHandler{})
+	// 注意，这里是HandleFunc，下面是HandlerFunc
+	http.HandleFunc("/hi", sayHi)
+	http.Handle("/hello", http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
+		writer.Write([]byte("<html><body><H1>Hello!</H1></body></html>"))
+	}))
+
+	http.ListenAndServe(":8080", nil)
 }
 
-func Start() {
-	fmt.Println("server start.")
-	http.HandleFunc("/", handler)
-	if err := http.ListenAndServe("localhost:1234", nil); err != nil {
-		log.Fatal("ListenAndServer:", err)
-	}
+type ThisHandler struct{}
+
+func (m *ThisHandler) ServeHTTP(writer http.ResponseWriter, request *http.Request) {
+	writer.Write([]byte("<html><body><H1>ThisHandler's ServerHttp</H1></body></html>"))
+}
+
+func sayHi(writer http.ResponseWriter, request *http.Request) {
+	writer.Write([]byte("<html><head><style type=\"text/css\">\n\t\tdiv{\n\t\t\theight: 200px;\n\t\t\twidth:200px;\n\t\t\tbackground-color: #dea46b;\n\t\t\ttext-align: center; \n\t\t\tline-height: 200px;/*文字水平居中*/\n\t\t\tmargin:auto;/*div水平居中*/\n\t\t}\n\t</style></head><body><div>Hi!</div></body></html>"))
 }

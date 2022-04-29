@@ -1,0 +1,4 @@
+[windows]
+rootdir = "D:\\WorkSpace\\WorkspaceOfGo\\Mytest_Go\\answers"
+port = "8000"
+bddebug = true

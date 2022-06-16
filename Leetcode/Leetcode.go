@@ -1,35 +1,38 @@
 package Leetcode
 
-import (
-	"sort"
-)
+import ()
 
-func longestCommonPrefix(strs []string) string {
-	sort.Strings(strs)
-	lastStr := ""
-	answer := ""
-	if len(strs) == 1 {
-		return strs[0]
+// Definition for singly-linked list.
+type ListNode struct {
+	Val  int
+	Next *ListNode
+}
+
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+
+	preHead := &ListNode{
+		Val:  -1,
+		Next: nil,
 	}
-	for _, s := range strs {
-		if s == "" {
-			return ""
+	var prev *ListNode
+	prev = preHead
+
+	for list1 != nil && list2 != nil {
+		if list1.Val < list2.Val {
+			prev.Next = list1
+			list1 = list1.Next
+		} else {
+			prev.Next = list2
+			list2 = list2.Next
 		}
-		temp := 0
-		for j := 0; j < len(s) && j < len(lastStr); j++ {
-			if s[j] == lastStr[j] {
-				temp++
-			} else {
-				break
-			}
-		}
-		if temp == 0 && lastStr != "" {
-			return ""
-		}
-		if answer == "" || len(answer) > temp {
-			answer = s[:temp]
-		}
-		lastStr = s
+		prev = prev.Next
 	}
-	return answer
+
+	if list1 == nil {
+		prev.Next = list2
+	} else {
+		prev.Next = list1
+	}
+
+	return preHead.Next
 }
